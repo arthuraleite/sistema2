@@ -54,7 +54,7 @@
                 <select name="cliente_id" class="form-control" required>
                     <option value="">Selecione</option>
                     <?php foreach ($clientes as $c): ?>
-                        <option value="<?= $c['id'] ?>"><?= $c['nome'] ?></option>
+                        <option value="<?= $c['id'] ?>"><?= htmlspecialchars($c['nome']) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>

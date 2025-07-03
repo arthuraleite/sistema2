@@ -56,18 +56,18 @@
                 <select name="cliente_id" class="form-control" required>
                     <?php foreach ($clientes as $c): ?>
                         <option value="<?= $c['id'] ?>" <?= $c['id'] == $pedido['cliente_id'] ? 'selected' : '' ?>>
-                            <?= $c['nome'] ?>
+                            <?= htmlspecialchars($c['nome']) ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
             </div>
             <div class="mb-3 col-md-3">
                 <label>Data do Pedido</label>
-                <input type="date" name="data_pedido" class="form-control" value="<?= $pedido['data_pedido'] ?>" required>
+                <input type="date" name="data_pedido" class="form-control" value="<?= htmlspecialchars($pedido['data_pedido']) ?>" required>
             </div>
             <div class="mb-3 col-md-3">
                 <label>Previsão de Entrega</label>
-                <input type="date" name="previsao_entrega" class="form-control" value="<?= $pedido['previsao_entrega'] ?>" required>
+                <input type="date" name="previsao_entrega" class="form-control" value="<?= htmlspecialchars($pedido['previsao_entrega']) ?>" required>
             </div>
         </div>
 
@@ -101,7 +101,7 @@
 
         <div class="mt-3">
             <label>Observações</label>
-            <textarea name="observacoes" class="form-control"><?= $pedido['observacoes'] ?></textarea>
+            <textarea name="observacoes" class="form-control"><?= htmlspecialchars($pedido['observacoes']) ?></textarea>
         </div>
         <button type="submit" class="btn btn-primary mt-3">Atualizar Pedido</button>
     </form>

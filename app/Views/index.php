@@ -42,8 +42,8 @@
             <tbody>
                 <?php foreach ($emAndamento as $p): ?>
                     <tr>
-                        <td><?= $p['cliente_nome'] ?></td>
-                        <td><?= $p['status'] ?></td>
+                    <td><?= htmlspecialchars($p['cliente_nome']) ?></td>
+                    <td><?= htmlspecialchars($p['status']) ?></td>
                         <td><?= date('d/m/Y', strtotime($p['previsao_entrega'])) ?></td>
                     </tr>
                 <?php endforeach; ?>
@@ -65,8 +65,8 @@
             <tbody>
                 <?php foreach ($prontos as $p): ?>
                     <tr>
-                        <td><?= $p['cliente_nome'] ?></td>
-                        <td><?= $p['telefone'] ?></td>
+                        <td><?= htmlspecialchars($p['cliente_nome']) ?></td>
+                        <td><?= htmlspecialchars($p['telefone']) ?></td>
                         <td><?= date('d/m/Y', strtotime($p['previsao_entrega'])) ?></td>
                     </tr>
                 <?php endforeach; ?>
@@ -83,7 +83,7 @@
                 $alerta = $dias <= 3 ? 'text-danger fw-bold' : '';
             ?>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <?= $c['descricao'] ?>
+                    <?= htmlspecialchars($c['descricao']) ?>
                     <span class="<?= $alerta ?>">
                         VENCIMENTO EM <?= $dias ?> DIA<?= $dias == 1 ? '' : 'S' ?>
                     </span>
@@ -121,11 +121,11 @@
         <form method="get" class="row g-3">
             <div class="col-auto">
                 <label for="inicio" class="form-label">Início:</label>
-                <input type="date" name="inicio" id="inicio" class="form-control" value="<?= $inicio ?>">
+                <input type="date" name="inicio" id="inicio" class="form-control" value="<?= htmlspecialchars($inicio) ?>">
             </div>
             <div class="col-auto">
                 <label for="fim" class="form-label">Fim:</label>
-                <input type="date" name="fim" id="fim" class="form-control" value="<?= $fim ?>">
+                <input type="date" name="fim" id="fim" class="form-control" value="<?= htmlspecialchars($fim) ?>">
             </div>
             <div class="col-auto d-flex align-items-end">
                 <button type="submit" class="btn btn-primary">Filtrar</button>
