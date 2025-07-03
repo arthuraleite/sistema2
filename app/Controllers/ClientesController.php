@@ -21,7 +21,9 @@ class ClientesController {
         }
 
         Cliente::salvar($dados);
-        redirect('/clientes');
+        $mensagem = 'Cliente salvo com sucesso.';
+        $voltar = $_SERVER['HTTP_REFERER'] ?? BASE_URL . '/clientes';
+        include '../app/Views/confirmacao.php';
     }
 
     public function editar($id) {
@@ -32,7 +34,9 @@ class ClientesController {
     public function atualizar($id) {
         $dados = $_POST;
         Cliente::atualizar($id, $dados);
-        redirect('/clientes');
+        $mensagem = 'Cliente atualizado com sucesso.';
+        $voltar = $_SERVER['HTTP_REFERER'] ?? BASE_URL . '/clientes';
+        include '../app/Views/confirmacao.php';
     }
 
     public function excluir($id) {

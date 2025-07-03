@@ -30,7 +30,9 @@ class PedidosController {
         $pagamentos = $_POST['pagamentos'] ?? [];
 
         Pedido::salvar($dados, $itens, $pagamentos);
-        redirect('/pedidos');
+        $mensagem = 'Pedido salvo com sucesso.';
+        $voltar = $_SERVER['HTTP_REFERER'] ?? BASE_URL . '/pedidos';
+        include '../app/Views/confirmacao.php';
     }
 
     public function ver($id) {
