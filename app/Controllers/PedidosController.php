@@ -1,5 +1,5 @@
 <?php
-// app/Controllers/PedidoController.php
+// app/Controllers/PedidosController.php
 require_once '../app/Models/Pedido.php';
 require_once '../app/Models/Cliente.php';
 require_once '../app/Models/Produto.php';

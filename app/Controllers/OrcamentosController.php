@@ -1,5 +1,5 @@
 <?php
-// app/Controllers/OrcamentoController.php
+// app/Controllers/OrcamentosController.php
 require_once '../app/Models/Orcamento.php';
 require_once '../app/Models/Pedido.php';
 require_once '../app/Models/Cliente.php';
