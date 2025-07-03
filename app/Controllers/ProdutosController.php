@@ -15,7 +15,9 @@ class ProdutosController {
     public function salvar() {
         $dados = $_POST;
         Produto::salvar($dados);
-        redirect('/produtos');
+        $mensagem = 'Produto salvo com sucesso.';
+        $voltar = $_SERVER['HTTP_REFERER'] ?? BASE_URL . '/produtos';
+        include '../app/Views/confirmacao.php';
     }
 
     public function editar($id) {
@@ -26,7 +28,9 @@ class ProdutosController {
     public function atualizar($id) {
         $dados = $_POST;
         Produto::atualizar($id, $dados);
-        redirect('/produtos');
+        $mensagem = 'Produto atualizado com sucesso.';
+        $voltar = $_SERVER['HTTP_REFERER'] ?? BASE_URL . '/produtos';
+        include '../app/Views/confirmacao.php';
     }
 
     public function excluir($id) {
