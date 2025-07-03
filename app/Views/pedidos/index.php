@@ -22,8 +22,8 @@
         <tbody>
             <?php foreach ($pedidos as $p): ?>
                 <tr>
-                    <td><?= $p['cliente_nome'] ?></td>
-                    <td><?= $p['status'] ?></td>
+                    <td><?= htmlspecialchars($p['cliente_nome']) ?></td>
+                    <td><?= htmlspecialchars($p['status']) ?></td>
                     <td>R$ <?= number_format($p['total'], 2, ',', '.') ?></td>
                     <td>
                         <a href="<?= BASE_URL ?>/pedidos/ver/<?= $p['id'] ?>" class="btn btn-sm btn-info">Visualizar</a>

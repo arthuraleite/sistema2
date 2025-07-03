@@ -20,8 +20,8 @@
         <tbody>
             <?php foreach ($usuarios as $u): ?>
                 <tr>
-                    <td><?= $u['usuario'] ?></td>
-                    <td><?= $u['tipo'] ?></td>
+                    <td><?= htmlspecialchars($u['usuario']) ?></td>
+                    <td><?= htmlspecialchars($u['tipo']) ?></td>
                     <td>
                         <a href="<?= BASE_URL ?>/usuarios/excluir/<?= $u['id'] ?>" onclick="return confirm('Excluir este usuário?')" class="btn btn-sm btn-danger">Excluir</a>
                     </td>

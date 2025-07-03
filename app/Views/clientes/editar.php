@@ -12,21 +12,21 @@
         <div class="row">
             <div class="mb-3 col-md-6">
                 <label>Nome</label>
-                <input type="text" name="nome" class="form-control" value="<?= $cliente['nome'] ?>" required>
+                <input type="text" name="nome" class="form-control" value="<?= htmlspecialchars($cliente['nome']) ?>" required>
             </div>
             <div class="mb-3 col-md-6">
                 <label>Telefone</label>
-                <input type="text" name="telefone" class="form-control" value="<?= $cliente['telefone'] ?>">
+                <input type="text" name="telefone" class="form-control" value="<?= htmlspecialchars($cliente['telefone']) ?>">
             </div>
         </div>
         <div class="row">
             <div class="mb-3 col-md-6">
                 <label>Email</label>
-                <input type="email" name="email" class="form-control" value="<?= $cliente['email'] ?>">
+                <input type="email" name="email" class="form-control" value="<?= htmlspecialchars($cliente['email']) ?>">
             </div>
             <div class="mb-3 col-md-6">
                 <label>CPF/CNPJ</label>
-                <input type="text" name="cpf_cnpj" class="form-control" value="<?= $cliente['cpf_cnpj'] ?>" required>
+                <input type="text" name="cpf_cnpj" class="form-control" value="<?= htmlspecialchars($cliente['cpf_cnpj']) ?>" required>
             </div>
         </div>
         <div class="row">
@@ -39,25 +39,25 @@
             </div>
             <div class="mb-3 col-md-3">
                 <label>Contato</label>
-                <input type="text" name="contato" class="form-control" value="<?= $cliente['contato'] ?>">
+                <input type="text" name="contato" class="form-control" value="<?= htmlspecialchars($cliente['contato']) ?>">
             </div>
             <div class="mb-3 col-md-3">
                 <label>Responsável</label>
-                <input type="text" name="responsavel" class="form-control" value="<?= $cliente['responsavel'] ?>">
+                <input type="text" name="responsavel" class="form-control" value="<?= htmlspecialchars($cliente['responsavel']) ?>">
             </div>
             <div class="mb-3 col-md-3">
                 <label>Insc. Municipal</label>
-                <input type="text" name="insc_municipal" class="form-control" value="<?= $cliente['insc_municipal'] ?>">
+                <input type="text" name="insc_municipal" class="form-control" value="<?= htmlspecialchars($cliente['insc_municipal']) ?>">
             </div>
         </div>
         <div class="row">
             <div class="mb-3 col-md-6">
                 <label>Insc. Estadual</label>
-                <input type="text" name="insc_estadual" class="form-control" value="<?= $cliente['insc_estadual'] ?>">
+                <input type="text" name="insc_estadual" class="form-control" value="<?= htmlspecialchars($cliente['insc_estadual']) ?>">
             </div>
             <div class="mb-3 col-md-6">
                 <label>Observações</label>
-                <textarea name="observacoes" class="form-control"><?= $cliente['observacoes'] ?></textarea>
+                <textarea name="observacoes" class="form-control"><?= htmlspecialchars($cliente['observacoes']) ?></textarea>
             </div>
         </div>
         <button type="submit" class="btn btn-success">Atualizar</button>

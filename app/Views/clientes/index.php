@@ -11,7 +11,7 @@
     <a href="<?= BASE_URL ?>/clientes/novo" class="btn btn-primary mb-3">Novo Cliente</a>
 
     <?php if (!empty($_SESSION['erro'])): ?>
-        <div class="alert alert-danger"><?= $_SESSION['erro'] ?></div>
+        <div class="alert alert-danger"><?= htmlspecialchars($_SESSION['erro']) ?></div>
         <?php unset($_SESSION['erro']); ?>
     <?php endif; ?>
 
@@ -27,9 +27,9 @@
         <tbody>
             <?php foreach ($clientes as $c): ?>
                 <tr>
-                    <td><?= $c['nome'] ?></td>
-                    <td><?= $c['telefone'] ?></td>
-                    <td><?= $c['email'] ?></td>
+                    <td><?= htmlspecialchars($c['nome']) ?></td>
+                    <td><?= htmlspecialchars($c['telefone']) ?></td>
+                    <td><?= htmlspecialchars($c['email']) ?></td>
                     <td>
                         <a href="<?= BASE_URL ?>/clientes/editar/<?= $c['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
                         <a href="<?= BASE_URL ?>/clientes/excluir/<?= $c['id'] ?>" onclick="return confirm('Excluir este cliente?')" class="btn btn-sm btn-danger">Excluir</a>

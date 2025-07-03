@@ -11,7 +11,7 @@
         <h4 class="mb-3 text-center">Acesso ao Sistema</h4>
 
         <?php if (!empty($_SESSION['erro_login'])): ?>
-            <div class="alert alert-danger"><?= $_SESSION['erro_login'] ?></div>
+            <div class="alert alert-danger"><?= htmlspecialchars($_SESSION['erro_login']) ?></div>
             <?php unset($_SESSION['erro_login']); ?>
         <?php endif; ?>
 

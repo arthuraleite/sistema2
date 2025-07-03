@@ -38,19 +38,19 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <label>Nome do Cliente</label>
-                <input name="cliente_nome" class="form-control" value="<?= $orcamento['cliente_nome'] ?? '' ?>" required>
+                <input name="cliente_nome" class="form-control" value="<?= htmlspecialchars($orcamento['cliente_nome'] ?? '') ?>" required>
             </div>
             <div class="col-md-6 mb-3">
                 <label>Contato</label>
-                <input name="cliente_contato" class="form-control" value="<?= $orcamento['cliente_contato'] ?? '' ?>">
+                <input name="cliente_contato" class="form-control" value="<?= htmlspecialchars($orcamento['cliente_contato'] ?? '') ?>">
             </div>
             <div class="col-md-6 mb-3">
                 <label>Data</label>
-                <input type="date" name="data" class="form-control" value="<?= $orcamento['data'] ?? date('Y-m-d') ?>" required>
+                <input type="date" name="data" class="form-control" value="<?= htmlspecialchars($orcamento['data'] ?? date('Y-m-d')) ?>" required>
             </div>
             <div class="col-md-6 mb-3">
                 <label>Validade</label>
-                <input type="date" name="validade" class="form-control" value="<?= $orcamento['validade'] ?? date('Y-m-d', strtotime('+3 months')) ?>" required>
+                <input type="date" name="validade" class="form-control" value="<?= htmlspecialchars($orcamento['validade'] ?? date('Y-m-d', strtotime('+3 months'))) ?>" required>
             </div>
         </div>
 
@@ -68,7 +68,7 @@
 
         <div class="mb-3">
             <label>Observações</label>
-            <textarea name="observacoes" class="form-control"><?= $orcamento['observacoes'] ?? '' ?></textarea>
+            <textarea name="observacoes" class="form-control"><?= htmlspecialchars($orcamento['observacoes'] ?? '') ?></textarea>
         </div>
         <button class="btn btn-success">Salvar</button>
     </form>
