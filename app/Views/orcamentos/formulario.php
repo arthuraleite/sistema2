@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Orçamento</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script>
+<?php $title = 'Orçamento'; $bodyAttributes = 'onload="calc()"'; ob_start(); ?>
+<script>
         function addItem(desc = '', qtd = 1, val = 0) {
             const tr = document.createElement('tr');
             tr.innerHTML = `
@@ -30,8 +25,6 @@
             document.getElementById('total').value = total.toFixed(2);
         }
     </script>
-</head>
-<body onload="calc()">
 <div class="container mt-4">
     <h2><?= isset($orcamento) ? 'Editar' : 'Novo' ?> Orçamento</h2>
     <form method="post" action="<?= isset($orcamento) ? '/orcamentos/atualizar/' . $orcamento['id'] : '/orcamentos/salvar' ?>">
@@ -73,5 +66,4 @@
         <button class="btn btn-success">Salvar</button>
     </form>
 </div>
-</body>
-</html>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>
