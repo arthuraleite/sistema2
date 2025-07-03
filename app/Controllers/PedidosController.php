@@ -5,6 +5,11 @@ require_once '../app/Models/Cliente.php';
 require_once '../app/Models/Produto.php';
 
 class PedidosController {
+    public function __construct() {
+        if (!isset($_SESSION['usuario'])) {
+            redirect('/login');
+        }
+    }
     public function index() {
         $pedidos = Pedido::listar();
         include '../app/Views/pedidos/index.php';

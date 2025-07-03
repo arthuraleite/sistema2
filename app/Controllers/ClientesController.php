@@ -3,6 +3,11 @@
 require_once '../app/Models/Cliente.php';
 
 class ClientesController {
+    public function __construct() {
+        if (!isset($_SESSION['usuario'])) {
+            redirect('/login');
+        }
+    }
     public function index() {
         $clientes = Cliente::listar();
         include '../app/Views/clientes/index.php';
