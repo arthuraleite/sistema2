@@ -1,5 +1,5 @@
 <?php
-// app/Controllers/UsuarioController.php
+// app/Controllers/UsuariosController.php
 
 class UsuariosController {
     public function index() {

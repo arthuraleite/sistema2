@@ -1,5 +1,5 @@
 <?php
-// app/Controllers/ClienteController.php
+// app/Controllers/ClientesController.php
 require_once '../app/Models/Cliente.php';
 
 class ClientesController {

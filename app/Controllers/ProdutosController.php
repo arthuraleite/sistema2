@@ -1,5 +1,5 @@
 <?php
-// app/Controllers/ProdutoController.php
+// app/Controllers/ProdutosController.php
 require_once '../app/Models/Produto.php';
 
 class ProdutosController {
