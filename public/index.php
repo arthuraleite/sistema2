@@ -38,8 +38,8 @@ if ($segments[0] === 'orcamentos' && $segments[1] === 'pdf') {
     if ($id) {
         require_once '../app/Models/Orcamento.php';
         $orcModel = new Orcamento();
-        $orcamento = $orcModel->buscarPorId($id);
-        $itens = $orcModel->itens($id);
+        $orcamento = $orcModel->buscar($id);
+        $itens = $orcModel->listarItens($id);
         require_once '../app/Views/orcamentos/pdf.php';
         exit;
     }
