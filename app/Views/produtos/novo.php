@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Novo Produto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+<?php $title = 'Novo Produto'; ob_start(); ?>
 <div class="container mt-4">
     <h2>Novo Produto</h2>
     <form method="post" action="<?= BASE_URL ?>/produtos/salvar">
@@ -20,5 +13,4 @@
         <button type="submit" class="btn btn-success">Salvar</button>
     </form>
 </div>
-</body>
-</html>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>

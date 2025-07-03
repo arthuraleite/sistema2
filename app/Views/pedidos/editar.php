@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Editar Pedido</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script>
+<?php $title = 'Editar Pedido'; $bodyAttributes = 'onload="calcTotal()"'; ob_start(); ?>
+<script>
         function calcTotal() {
             let total = 0;
             document.querySelectorAll('.subtotal').forEach(input => {
@@ -45,8 +40,6 @@
             tbody.appendChild(tr);
         }
     </script>
-</head>
-<body onload="calcTotal()">
 <div class="container mt-4">
     <h2>Editar Pedido</h2>
     <form method="post" action="<?= BASE_URL ?>/pedidos/atualizar/<?= $pedido['id'] ?>">
@@ -116,5 +109,4 @@
         addPagamento(<?= $m['valor'] ?>, "<?= addslashes($m['descricao']) ?>", "<?= $m['data'] ?>", "<?= addslashes($m['forma_pagamento']) ?>");
     <?php endforeach; ?>
 </script>
-</body>
-</html>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>
