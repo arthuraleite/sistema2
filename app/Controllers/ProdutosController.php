@@ -10,11 +10,11 @@ class ProdutosController {
     }
     public function index() {
         $produtos = Produto::listar();
-        include '../app/Views/produtos/index.php';
+        render('produtos/index', compact('produtos'));
     }
 
     public function novo() {
-        include '../app/Views/produtos/novo.php';
+        render('produtos/novo');
     }
 
     public function salvar() {
@@ -27,7 +27,7 @@ class ProdutosController {
 
     public function editar($id) {
         $produto = Produto::buscar($id);
-        include '../app/Views/produtos/editar.php';
+        render('produtos/editar', compact('produto'));
     }
 
     public function atualizar($id) {

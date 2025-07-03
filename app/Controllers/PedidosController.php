@@ -12,13 +12,13 @@ class PedidosController {
     }
     public function index() {
         $pedidos = Pedido::listar();
-        include '../app/Views/pedidos/index.php';
+        render('pedidos/index', compact('pedidos'));
     }
 
     public function novo() {
         $clientes = Cliente::listar();
         $produtos = Produto::listar();
-        include '../app/Views/pedidos/novo.php';
+        render('pedidos/novo', compact('clientes','produtos'));
     }
 
     public function salvar() {
@@ -44,7 +44,7 @@ class PedidosController {
         $pedido = Pedido::buscar($id);
         $itens = Pedido::listarItens($id);
         $movs = Pedido::listarPagamentos($id);
-        include '../app/Views/pedidos/ver.php';
+        render('pedidos/ver', compact('pedido','itens','movs'));
     }
 
     public function excluir($id) {

@@ -13,11 +13,11 @@ class OrcamentosController {
     public function index() {
         Orcamento::excluirExpirados(); // remove orçamentos vencidos
         $orcamentos = Orcamento::listar();
-        include '../app/Views/orcamentos/index.php';
+        render('orcamentos/index', compact('orcamentos'));
     }
 
     public function novo() {
-        include '../app/Views/orcamentos/novo.php';
+        render('orcamentos/novo', compact('clientes'));
     }
 
     public function salvar() {
@@ -40,7 +40,7 @@ class OrcamentosController {
     public function editar($id) {
         $orcamento = Orcamento::buscar($id);
         $itens = Orcamento::listarItens($id);
-        include '../app/Views/orcamentos/editar.php';
+        render('orcamentos/editar', compact('orcamento','itens'));
     }
 
     public function atualizar($id) {
@@ -67,7 +67,7 @@ class OrcamentosController {
     public function ver($id) {
         $orcamento = Orcamento::buscar($id);
         $itens = Orcamento::listarItens($id);
-        include '../app/Views/orcamentos/ver.php';
+        render('orcamentos/ver', compact('orcamento','itens'));
     }
 
     public function pdf($id) {
@@ -80,7 +80,7 @@ class OrcamentosController {
         $orcamento = Orcamento::buscar($id);
         $itens = Orcamento::listarItens($id);
         $clientes = Cliente::listar();
-        include '../app/Views/orcamentos/converter.php';
+        render('orcamentos/converter', compact('orcamento','itens','clientes'));
     }
 }
 

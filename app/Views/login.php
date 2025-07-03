@@ -20,5 +20,4 @@
             <button type="submit" class="btn btn-primary w-100">Entrar</button>
         </form>
     </div>
-</div>
 <?php $content = ob_get_clean(); include __DIR__ . '/layout.php'; ?>

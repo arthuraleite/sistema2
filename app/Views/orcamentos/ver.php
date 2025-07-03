@@ -24,5 +24,5 @@
         Total: <strong>R$ <?= number_format($orcamento['total'], 2, ',', '.') ?></strong>
     </div>
     <p><strong>Observações:</strong><br><?= nl2br(htmlspecialchars($orcamento['observacoes'])) ?></p>
-</div>
+  </div>
 <?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>

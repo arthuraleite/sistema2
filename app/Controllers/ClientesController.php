@@ -10,11 +10,11 @@ class ClientesController {
     }
     public function index() {
         $clientes = Cliente::listar();
-        include '../app/Views/clientes/index.php';
+        render('clientes/index', compact('clientes'));
     }
 
     public function novo() {
-        include '../app/Views/clientes/novo.php';
+        render('clientes/novo');
     }
 
     public function salvar() {
@@ -33,7 +33,7 @@ class ClientesController {
 
     public function editar($id) {
         $cliente = Cliente::buscar($id);
-        include '../app/Views/clientes/editar.php';
+        render('clientes/editar', compact('cliente'));
     }
 
     public function atualizar($id) {

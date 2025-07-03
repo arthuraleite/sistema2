@@ -12,11 +12,11 @@ class UsuariosController {
         }
 
         $usuarios = $pdo->query("SELECT * FROM usuarios")->fetchAll(PDO::FETCH_ASSOC);
-        include '../app/Views/usuarios/index.php';
+        render('usuarios/index', compact('usuarios'));
     }
 
     public function novo() {
-        include '../app/Views/usuarios/novo.php';
+        render('usuarios/novo');
     }
 
     public function salvar() {

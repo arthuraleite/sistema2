@@ -1,8 +1,6 @@
 <?php // app/Views/index.php
 $title = 'Dashboard';
 ob_start();
-?>
-
 
 <div class="container">
     <h2 class="mb-4">Dashboard</h2>
