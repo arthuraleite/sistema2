@@ -1,4 +1,4 @@
-<?php $title = "Novo Cliente"; ?>
+<?php $title = 'Novo Cliente'; ob_start(); ?>
 <div class="container mt-4">
     <h2>Novo Cliente</h2>
     <form method="post" action="<?= BASE_URL ?>/clientes/salvar">
@@ -56,3 +56,4 @@
         <button type="submit" class="btn btn-success">Salvar</button>
     </form>
 </div>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>

@@ -1,11 +1,11 @@
-<?php $title = "Pedido"; ?>
+<?php $title = 'Pedido'; ob_start(); ?>
 <div class="container mt-4">
     <h2>Visualizar Pedido</h2>
-    <p><strong>Cliente:</strong> <?= $pedido['cliente_nome'] ?></p>
-    <p><strong>Status:</strong> <?= $pedido['status'] ?></p>
+    <p><strong>Cliente:</strong> <?= htmlspecialchars($pedido['cliente_nome']) ?></p>
+    <p><strong>Status:</strong> <?= htmlspecialchars($pedido['status']) ?></p>
     <p><strong>Data:</strong> <?= date('d/m/Y', strtotime($pedido['data_pedido'])) ?></p>
     <p><strong>Entrega Prevista:</strong> <?= date('d/m/Y', strtotime($pedido['previsao_entrega'])) ?></p>
-    <p><strong>Observações:</strong> <?= $pedido['observacoes'] ?></p>
+    <p><strong>Observações:</strong> <?= htmlspecialchars($pedido['observacoes']) ?></p>
 
     <h5>Itens</h5>
     <table class="table table-bordered">
@@ -13,7 +13,7 @@
         <tbody>
             <?php foreach ($itens as $item): ?>
                 <tr>
-                    <td><?= $item['descricao'] ?></td>
+                    <td><?= htmlspecialchars($item['descricao']) ?></td>
                     <td><?= $item['quantidade'] ?></td>
                     <td>R$ <?= number_format($item['valor_unitario'], 2, ',', '.') ?></td>
                     <td>R$ <?= number_format($item['subtotal'], 2, ',', '.') ?></td>
@@ -33,9 +33,9 @@
             ?>
                 <tr>
                     <td>R$ <?= number_format($m['valor'], 2, ',', '.') ?></td>
-                    <td><?= $m['descricao'] ?></td>
+                    <td><?= htmlspecialchars($m['descricao']) ?></td>
                     <td><?= date('d/m/Y', strtotime($m['data'])) ?></td>
-                    <td><?= $m['forma_pagamento'] ?></td>
+                    <td><?= htmlspecialchars($m['forma_pagamento']) ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -46,3 +46,4 @@
         Total Recebido: R$ <?= number_format($totalPago, 2, ',', '.') ?>
     </div>
 </div>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>

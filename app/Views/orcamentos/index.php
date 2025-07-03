@@ -1,4 +1,4 @@
-<?php $title = "Orçamentos"; ?>
+<?php $title = 'Orçamentos'; ob_start(); ?>
 <div class="container mt-4">
     <h2>Orçamentos</h2>
     <a href="<?= BASE_URL ?>/orcamentos/novo" class="btn btn-primary mb-3">Novo Orçamento</a>
@@ -33,3 +33,4 @@
         </tbody>
     </table>
 </div>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>

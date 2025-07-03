@@ -43,7 +43,7 @@ function calcTotal() {
                 <select name="cliente_id" class="form-control" required>
                     <option value="">Selecione</option>
                     <?php foreach ($clientes as $c): ?>
-                        <option value="<?= $c['id'] ?>"><?= $c['nome'] ?></option>
+                        <option value="<?= $c['id'] ?>"><?= htmlspecialchars($c['nome']) ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
@@ -95,3 +95,4 @@ function calcTotal() {
         <button type="submit" class="btn btn-success mt-3">Salvar Pedido</button>
     </form>
 </div>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>

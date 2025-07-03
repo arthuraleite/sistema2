@@ -1,4 +1,4 @@
-<?php $title = "Produtos"; ?>
+<?php $title = 'Produtos'; ob_start(); ?>
 <div class="container mt-4">
     <h2>Produtos</h2>
     <a href="<?= BASE_URL ?>/produtos/novo" class="btn btn-primary mb-3">Novo Produto</a>
@@ -14,7 +14,7 @@
         <tbody>
             <?php foreach ($produtos as $p): ?>
                 <tr>
-                    <td><?= $p['descricao'] ?></td>
+                    <td><?= htmlspecialchars($p['descricao']) ?></td>
                     <td>R$ <?= number_format($p['valor_unitario'], 2, ',', '.') ?></td>
                     <td>
                         <a href="<?= BASE_URL ?>/produtos/editar/<?= $p['id'] ?>" class="btn btn-sm btn-warning">Editar</a>
@@ -25,3 +25,4 @@
         </tbody>
     </table>
 </div>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>

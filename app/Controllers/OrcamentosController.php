@@ -5,6 +5,11 @@ require_once '../app/Models/Pedido.php';
 require_once '../app/Models/Cliente.php';
 
 class OrcamentosController {
+    public function __construct() {
+        if (!isset($_SESSION['usuario'])) {
+            redirect('/login');
+        }
+    }
     public function index() {
         Orcamento::excluirExpirados(); // remove orçamentos vencidos
         $orcamentos = Orcamento::listar();
@@ -27,7 +32,9 @@ class OrcamentosController {
 
         $itens = $_POST['itens'] ?? [];
         Orcamento::salvar($dados, $itens);
-        redirect('/orcamentos');
+        $mensagem = 'Orçamento salvo com sucesso.';
+        $voltar = $_SERVER['HTTP_REFERER'] ?? BASE_URL . '/orcamentos';
+        include '../app/Views/confirmacao.php';
     }
 
     public function editar($id) {
@@ -47,7 +54,9 @@ class OrcamentosController {
         ];
         $itens = $_POST['itens'] ?? [];
         Orcamento::atualizar($id, $dados, $itens);
-        redirect('/orcamentos');
+        $mensagem = 'Orçamento atualizado com sucesso.';
+        $voltar = $_SERVER['HTTP_REFERER'] ?? BASE_URL . '/orcamentos';
+        include '../app/Views/confirmacao.php';
     }
 
     public function excluir($id) {

@@ -1,4 +1,4 @@
-<?php $title = "Novo Usuário"; ?>
+<?php $title = 'Novo Usuário'; ob_start(); ?>
 <div class="container mt-4">
     <h2>Novo Usuário</h2>
     <form method="post" action="<?= BASE_URL ?>/usuarios/salvar">
@@ -20,3 +20,4 @@
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
 </div>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>

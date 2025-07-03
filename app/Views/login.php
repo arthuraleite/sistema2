@@ -1,11 +1,10 @@
-<?php $title = "Login"; ?>
-<div class="bg-light" style="min-height:100vh;">
+<?php $title = 'Login'; $bodyAttributes = 'class="bg-light"'; ob_start(); ?>
 <div class="container d-flex justify-content-center align-items-center" style="height:100vh;">
     <div class="card p-4 shadow" style="min-width: 300px;">
         <h4 class="mb-3 text-center">Acesso ao Sistema</h4>
 
         <?php if (!empty($_SESSION['erro_login'])): ?>
-            <div class="alert alert-danger"><?= $_SESSION['erro_login'] ?></div>
+            <div class="alert alert-danger"><?= htmlspecialchars($_SESSION['erro_login']) ?></div>
             <?php unset($_SESSION['erro_login']); ?>
         <?php endif; ?>
 
@@ -21,5 +20,4 @@
             <button type="submit" class="btn btn-primary w-100">Entrar</button>
         </form>
     </div>
-</div>
-</div>
+<?php $content = ob_get_clean(); include __DIR__ . '/layout.php'; ?>

@@ -35,6 +35,48 @@ function calcTotal() {
     document.getElementById('total').value = total.toFixed(2);
 }
 </script>
+<?php $title = 'Editar Pedido'; $bodyAttributes = 'onload="calcTotal()"'; ob_start(); ?>
+<script>
+        function calcTotal() {
+            let total = 0;
+            document.querySelectorAll('.subtotal').forEach(input => {
+                const row = input.closest('tr');
+                const qtd = parseFloat(row.querySelector('.qtd').value) || 0;
+                const val = parseFloat(row.querySelector('.valor').value) || 0;
+                const sub = qtd * val;
+                input.value = sub.toFixed(2);
+                total += sub;
+            });
+            document.getElementById('total').value = total.toFixed(2);
+        }
+
+        function addItem(desc = '', qtd = 1, valor = 0) {
+            const tbody = document.getElementById('itens');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><input name="itens[][descricao]" class="form-control" value="${desc}" required></td>
+                <td><input type="number" name="itens[][quantidade]" class="form-control qtd" value="${qtd}" onchange="calcTotal()" required></td>
+                <td><input type="number" step="0.01" name="itens[][valor_unitario]" class="form-control valor" value="${valor}" onchange="calcTotal()" required></td>
+                <td><input type="number" step="0.01" name="itens[][subtotal]" class="form-control subtotal" readonly></td>
+                <td><button type="button" onclick="this.closest('tr').remove();calcTotal()" class="btn btn-sm btn-danger">X</button></td>
+            `;
+            tbody.appendChild(tr);
+            calcTotal();
+        }
+
+        function addPagamento(valor = 0, descricao = '', data = '', forma = '') {
+            const tbody = document.getElementById('pagamentos');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td><input type="number" step="0.01" name="pagamentos[][valor]" class="form-control" value="${valor}" required></td>
+                <td><input type="text" name="pagamentos[][descricao]" class="form-control" value="${descricao}"></td>
+                <td><input type="date" name="pagamentos[][data]" class="form-control" value="${data}" required></td>
+                <td><input type="text" name="pagamentos[][forma_pagamento]" class="form-control" value="${forma}" required></td>
+                <td><button type="button" onclick="this.closest('tr').remove()" class="btn btn-sm btn-danger">X</button></td>
+            `;
+            tbody.appendChild(tr);
+        }
+    </script>
 <div class="container mt-4">
     <h2>Editar Pedido</h2>
     <form method="post" action="<?= BASE_URL ?>/pedidos/atualizar/<?= $pedido['id'] ?>">
@@ -54,6 +96,19 @@ function calcTotal() {
                         <option <?= $pedido['status']==$s?'selected':'' ?>><?= $s ?></option>
                     <?php endforeach; ?>
                 </select>
+                        <option value="<?= $c['id'] ?>" <?= $c['id'] == $pedido['cliente_id'] ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($c['nome']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="mb-3 col-md-3">
+                <label>Data do Pedido</label>
+                <input type="date" name="data_pedido" class="form-control" value="<?= htmlspecialchars($pedido['data_pedido']) ?>" required>
+            </div>
+            <div class="mb-3 col-md-3">
+                <label>Previsão de Entrega</label>
+                <input type="date" name="previsao_entrega" class="form-control" value="<?= htmlspecialchars($pedido['previsao_entrega']) ?>" required>
             </div>
         </div>
         <h5>Itens</h5>
@@ -90,7 +145,7 @@ function calcTotal() {
         <button type="button" class="btn btn-sm btn-secondary" onclick="addPagamento()">Adicionar Pagamento</button>
         <div class="mt-3">
             <label>Observações</label>
-            <textarea name="observacoes" class="form-control"><?= $pedido['observacoes'] ?></textarea>
+            <textarea name="observacoes" class="form-control"><?= htmlspecialchars($pedido['observacoes']) ?></textarea>
         </div>
         <button type="submit" class="btn btn-success mt-3">Salvar Pedido</button>
     </form>
@@ -103,3 +158,4 @@ function calcTotal() {
     addPagamento(<?= $m['valor'] ?>, "<?= addslashes($m['descricao']) ?>", "<?= $m['data'] ?>", "<?= addslashes($m['forma_pagamento']) ?>");
 <?php endforeach; ?>
 </script>
+<?php $content = ob_get_clean(); include __DIR__ . '/../layout.php'; ?>

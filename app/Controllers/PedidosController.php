@@ -5,6 +5,11 @@ require_once '../app/Models/Cliente.php';
 require_once '../app/Models/Produto.php';
 
 class PedidosController {
+    public function __construct() {
+        if (!isset($_SESSION['usuario'])) {
+            redirect('/login');
+        }
+    }
     public function index() {
         $pedidos = Pedido::listar();
         render('pedidos/index', compact('pedidos'));
@@ -30,7 +35,9 @@ class PedidosController {
         $pagamentos = $_POST['pagamentos'] ?? [];
 
         Pedido::salvar($dados, $itens, $pagamentos);
-        redirect('/pedidos');
+        $mensagem = 'Pedido salvo com sucesso.';
+        $voltar = $_SERVER['HTTP_REFERER'] ?? BASE_URL . '/pedidos';
+        include '../app/Views/confirmacao.php';
     }
 
     public function ver($id) {
