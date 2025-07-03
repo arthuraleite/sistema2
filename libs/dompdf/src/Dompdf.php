@@ -1,0 +1,1 @@
+<?php namespace Dompdf; class Dompdf { public function loadHtml($h){} public function setPaper($a,$b='portrait'){} public function render(){} public function stream($n,$o=[]){} }
