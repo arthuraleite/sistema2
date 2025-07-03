@@ -5,6 +5,11 @@ require_once '../app/Models/Pedido.php';
 require_once '../app/Models/Cliente.php';
 
 class OrcamentosController {
+    public function __construct() {
+        if (!isset($_SESSION['usuario'])) {
+            redirect('/login');
+        }
+    }
     public function index() {
         Orcamento::excluirExpirados(); // remove orçamentos vencidos
         $orcamentos = Orcamento::listar();

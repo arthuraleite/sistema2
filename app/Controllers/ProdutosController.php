@@ -3,6 +3,11 @@
 require_once '../app/Models/Produto.php';
 
 class ProdutosController {
+    public function __construct() {
+        if (!isset($_SESSION['usuario'])) {
+            redirect('/login');
+        }
+    }
     public function index() {
         $produtos = Produto::listar();
         include '../app/Views/produtos/index.php';
