@@ -37,10 +37,8 @@ class Cliente {
 
     public static function atualizar($id, $dados) {
         global $pdo;
-        $stmt = $pdo->prepare("
-            UPDATE clientes SET nome = ?, telefone = ?, email = ?, cpf_cnpj = ?, tipo = ?, contato = ?, responsavel = ?, insc_municipal = ?, insc_estadual = ?, observacoes = ?
-            WHERE id = ?
-        ");
+        $stmt = $pdo->prepare("UPDATE clientes SET nome = ?, telefone = ?, email = ?, cpf_cnpj = ?, tipo = ?, contato = ?, responsavel = ?, insc_municipal = ?, insc_estadual = ?, observacoes = ?
+            WHERE id = ?");
         $stmt->execute([
             $dados['nome'], $dados['telefone'], $dados['email'],
             $dados['cpf_cnpj'], $dados['tipo'], $dados['contato'] ?? null,
