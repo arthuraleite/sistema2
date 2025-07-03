@@ -14,7 +14,7 @@
     </script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
       <div class="container-fluid">
           <a class="navbar-brand" href="<?= BASE_URL ?>">Sistema</a>
           <div class="collapse navbar-collapse">
@@ -29,17 +29,7 @@
               <button id="themeToggle" class="btn btn-outline-secondary">Modo Escuro</button>
           </div>
       </div>
-  </nav>
+  </nav> -->
 <?= $content ?>
-<script src="<?= BASE_URL ?>/theme.js"></script>
-=======
-                <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/orcamentos">Orcamentos</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/financeiro">Financeiro</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/usuarios">Usuários</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<?php echo $content ?? ''; ?>
 </body>
 </html>
