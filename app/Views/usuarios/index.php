@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Usuários</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+<?php $title = "Usuários"; ?>
 <div class="container mt-4">
     <h2>Usuários do Sistema</h2>
     <a href="<?= BASE_URL ?>/usuarios/novo" class="btn btn-success mb-3">Novo Usuário</a>
@@ -30,5 +23,3 @@
         </tbody>
     </table>
 </div>
-</body>
-</html>

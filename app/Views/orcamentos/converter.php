@@ -1,4 +1,5 @@
 <?php
+$title = 'Converter Orçamento';
 include '../app/Views/pedidos/novo.php';
 ?>
 <script>

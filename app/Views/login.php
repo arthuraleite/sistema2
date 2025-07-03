@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+<?php $title = "Login"; ?>
+<div class="bg-light" style="min-height:100vh;">
 <div class="container d-flex justify-content-center align-items-center" style="height:100vh;">
     <div class="card p-4 shadow" style="min-width: 300px;">
         <h4 class="mb-3 text-center">Acesso ao Sistema</h4>
@@ -28,5 +22,4 @@
         </form>
     </div>
 </div>
-</body>
-</html>
+</div>

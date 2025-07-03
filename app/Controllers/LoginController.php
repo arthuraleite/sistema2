@@ -3,7 +3,7 @@
 
 class LoginController {
     public function index() {
-        include '../app/Views/login.php';
+        render('login');
     }
 
     public function autenticar() {

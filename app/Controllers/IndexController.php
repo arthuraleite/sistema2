@@ -25,6 +25,6 @@ class IndexController {
         $entradas = 1500.00;
         $saidas = 600.00;
 
-        include '../app/Views/index.php';
+        render('index', compact('inicio','fim','emAndamento','prontos','recorrentes','entradas','saidas'));
     }
 }

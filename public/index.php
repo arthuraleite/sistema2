@@ -3,6 +3,7 @@ session_start();
 require_once '../app/Config/config.php';
 require_once '../app/Core/Router.php';
 require_once '../app/Core/Controller.php';
+require_once '../app/Core/View.php';
 
 // Autoloader dos Models
 spl_autoload_register(function ($class) {

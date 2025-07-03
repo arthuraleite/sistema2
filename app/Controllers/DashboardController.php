@@ -44,6 +44,6 @@ class DashboardController {
             WHERE data BETWEEN '$inicio' AND '$fim'
         ")->fetchColumn() ?? 0;
 
-        include '../app/Views/index.php';
+        render('index', compact('inicio','fim','emAndamento','prontos','recorrentes','entradas','saidas'));
     }
 }
