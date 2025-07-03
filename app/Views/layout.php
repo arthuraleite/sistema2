@@ -22,7 +22,6 @@
                   <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/clientes">Clientes</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/produtos">Produtos</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/pedidos">Pedidos</a></li>
-  <<<<<<< codex/add-dark-mode-support-with-toggle
                   <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/orcamentos">Orçamentos</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/financeiro">Financeiro</a></li>
                   <li class="nav-item"><a class="nav-link" href="<?= BASE_URL ?>/usuarios">Usuários</a></li>
