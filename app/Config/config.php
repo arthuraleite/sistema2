@@ -22,6 +22,12 @@ try {
 
 // Função simples para redirecionar
 function redirect($url) {
+    // Prefix base path when a relative path is provided
+    if (!preg_match('#^https?://#', $url)) {
+        if (strpos($url, BASE_URL) !== 0) {
+            $url = rtrim(BASE_URL, '/') . '/' . ltrim($url, '/');
+        }
+    }
     header("Location: $url");
     exit;
 }
